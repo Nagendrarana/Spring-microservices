@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: 'jdbc:sqlserver://localhost;databaseName=spring;trustServerCertificate=true'
+    username: nagendra
+    password: test
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate:
+      ddl-auto: update
+  application:
+    name: "User-login"
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8761/eureka/"

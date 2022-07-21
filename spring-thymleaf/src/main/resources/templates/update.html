@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <style>
+       html, body {background:#FFFFFF url(<img>) no-repeat scroll center top;}
+
+    #selectorr {
+    max-width: 100%;
+height: auto;
+
+}
+
+        .business-header {
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.tagline {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Collection of data </title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"><a href="#"> demo</a></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Spring Boot with Angular</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ><a th:href="@{index}">Home</a></li>
+                <li ><a th:href="@{getdata}">Get Data</a></li>
+                <li ><a th:href="@{insert}">Insert Data</a></li>
+                <li class="active"><a th:href="@{update}">Update Data</a></li>
+                <li><a th:href="@{delete}">Delete Data</a></li>
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+        <div
+                class="bg-image"
+                style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp');
+    height: 100vh;
+  "
+        >
+
+            <form method="post" th:action="@{updatebyweb}" th:object="${tutorialModel}">
+                <h1>Update the Data Here</h1>
+
+                <div  class="info">
+
+                    <h2>Enter the ID</h2>
+                    <input type="text" th:field="*{id}" name="Title" placeholder="id">
+                    <input type="text" th:field="*{title}" name="Title" placeholder="Title">
+                    <input type="text" th:field="*{description}" name="Description" placeholder="Description">
+                    <input type="text" th:filed="*{published}" name="Published" placeholder="Published">
+
+
+                    <button type="submit" >Submit</button>
+                </div>
+            </form>
+
+
+
+
+
+            <div>
+                <table class="table table-bordered table-striped">
+
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>title</th>
+                        <th>Description</th>
+                        <th>published</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="tutorial: ${message}">
+                        <td th:text="${tutorial.id}"/>
+                        <td th:text="${tutorial.title}" />
+                        <td th:text="${tutorial.description}" />
+                        <td th:text="${tutorial.published}" />
+                    </tr>
+                    </tbody>
+
+
+
+                </table>
+
+            </div>
+            </form>
+
+
+
+
+        </div>
+
+
+
+    </div>
+</nav>
+
+
+
+
+</body>
+</html>
